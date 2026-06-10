@@ -1,0 +1,194 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum PlanTier {
+  SOLO
+  AGENCE
+  PRO
+}
+
+enum SubscriptionStatus {
+  NONE
+  PENDING
+  ACTIVE
+  SUSPENDED
+  CANCELLED
+  EXPIRED
+}
+
+enum ProspectStatus {
+  NOUVEAU
+  AUDIT_GENERE
+  RDV_PREVU
+  PROPOSITION_ENVOYEE
+  GAGNE
+  PERDU
+}
+
+enum AssetType {
+  AUDIT
+  SEO_STRATEGY
+  CALENDAR
+  PITCH
+  COMPETITORS
+  PROPOSAL
+}
+
+model Profile {
+  id            String         @id
+  email         String         @unique
+  role          Role           @default(USER)
+  agencyName    String?
+  logoUrl       String?
+  primaryColor  String?
+  website       String?
+  contactEmail  String?
+  phone         String?
+  signature     String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @default(now()) @updatedAt
+  businesses    Business[]
+  subscription  Subscription?
+  payments      Payment[]
+  usageLogs     UsageLog[]
+  notifications Notification[]
+}
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String             @unique
+  profile              Profile            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan                 PlanTier?
+  status               SubscriptionStatus @default(NONE)
+  paypalSubscriptionId String?            @unique
+  currentPeriodEnd     DateTime?
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @default(now()) @updatedAt
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  userId    String
+  profile   Profile  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  paypalId  String   @unique
+  amount    Float
+  currency  String   @default("EUR")
+  status    String
+  eventType String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model UsageLog {
+  id         String    @id @default(cuid())
+  userId     String
+  profile    Profile   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind       AssetType
+  modelUsed  String?
+  businessId String?
+  createdAt  DateTime  @default(now())
+
+  @@index([userId, kind, createdAt])
+}
+
+model ErrorLog {
+  id        String   @id @default(cuid())
+  scope     String
+  message   String
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model PaypalPlanRef {
+  tier      PlanTier @id
+  productId String
+  planId    String
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  profile   Profile   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Business {
+  id                String           @id @default(cuid())
+  userId            String?
+  owner             Profile?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name              String
+  sector            String
+  city              String
+  website           String?
+  phone             String?
+  description       String?
+  targetAudience    String?
+  mainGoal          String
+  hasGoogleBusiness Boolean          @default(false)
+  socialNetworks    String[]         @default([])
+  monthlyBudget     Int              @default(500)
+  contactName       String?
+  status            ProspectStatus   @default(NOUVEAU)
+  potentialValue    Int?
+  followUpDate      DateTime?
+  notes             String?
+  createdAt         DateTime         @default(now())
+  assets            GeneratedAsset[]
+  roiScenarios      RoiScenario[]
+
+  @@index([userId, createdAt])
+}
+
+model GeneratedAsset {
+  id         String    @id @default(cuid())
+  businessId String
+  business   Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  type       AssetType
+  data       Json
+  modelUsed  String?
+  createdAt  DateTime  @default(now())
+
+  @@index([businessId, type, createdAt])
+}
+
+model RoiScenario {
+  id                String   @id @default(cuid())
+  businessId        String
+  business          Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name              String
+  monthlyInvestment Int
+  extraVisitors     Int
+  conversionRate    Float
+  closeRate         Float
+  avgTicket         Float
+  marginRate        Float
+  purchasesPerYear  Float    @default(1)
+  createdAt         DateTime @default(now())
+}
