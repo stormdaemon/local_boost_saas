@@ -4,5 +4,14 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  # Variables exclues du scan de secrets :
+  # - NEXT_PUBLIC_* sont publiques par conception (URL du site, URL et clé anon
+  #   Supabase, conçues pour être embarquées dans le navigateur) ;
+  # - PAYPAL_ENV vaut "sandbox"/"live", un mot générique non secret.
+  # Les vrais secrets (GEMINI_API_KEY, PAYPAL_SECRET, DATABASE_URL,
+  # SUPABASE_SERVICE_ROLE_KEY, WEBHOOK_SECRET) restent scannés.
+  SECRETS_SCAN_OMIT_KEYS = "PAYPAL_ENV,NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
