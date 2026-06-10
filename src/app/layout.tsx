@@ -49,6 +49,9 @@ export const metadata: Metadata = {
       "Audit digital local, stratégie SEO, ROI et proposition commerciale en marque blanche, générés en quelques minutes.",
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "btC-z5HBz278nDjFTRkVU9IGbkNvQw402m6gFkKGykQ",
+  },
 };
 
 export default function RootLayout({
