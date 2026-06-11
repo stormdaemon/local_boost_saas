@@ -17,7 +17,9 @@ export default function PrivacyPage() {
           <span className="rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 p-2">
             <Compass className="h-4 w-4 text-white" />
           </span>
-          <span className="font-bold text-white">ProspectPilot Local</span>
+          <span className="hidden font-bold text-white min-[480px]:inline">
+            ProspectPilot Local
+          </span>
         </Link>
         <Link href="/" className="btn-ghost px-4 py-2 text-sm">
           Accueil

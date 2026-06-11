@@ -15,7 +15,7 @@ export function ModelBadge({ modelUsed }: { modelUsed: string | null }) {
 
 export function GeneratingCard({ label }: { label: string }) {
   return (
-    <div className="card flex flex-col items-center justify-center gap-4 px-8 py-20 text-center">
+    <div className="card flex flex-col items-center justify-center gap-4 px-5 py-16 text-center sm:px-8 sm:py-20">
       <div className="relative">
         <div className="absolute inset-0 animate-ping rounded-full bg-indigo-500/30" />
         <div className="relative rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 p-4">
@@ -47,7 +47,7 @@ export function EmptyAssetCard({
   icon: ReactNode;
 }) {
   return (
-    <div className="card relative overflow-hidden px-8 py-16 text-center">
+    <div className="card relative overflow-hidden px-5 py-12 text-center sm:px-8 sm:py-16">
       <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[480px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-3xl" />
       <div className="relative mx-auto mb-5 inline-flex rounded-2xl bg-gradient-to-br from-indigo-500/20 to-violet-500/20 p-4 text-indigo-300">
         {icon}

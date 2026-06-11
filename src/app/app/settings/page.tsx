@@ -123,12 +123,12 @@ export default function SettingsPage() {
   );
 
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
       <h1 className="text-2xl font-bold text-white">Mon compte</h1>
       <p className="mt-1 text-sm text-white/55">{me.email}</p>
 
       {/* Marque blanche */}
-      <form onSubmit={saveAgency} className="card mt-8 p-7">
+      <form onSubmit={saveAgency} className="card mt-8 p-5 sm:p-7">
         <h2 className="flex items-center gap-2 text-lg font-semibold text-white">
           <Brush className="h-5 w-5 text-indigo-300" />
           Marque blanche
@@ -158,7 +158,7 @@ export default function SettingsPage() {
                 disabled={!canWhiteLabel}
               />
               <input
-                className="input flex-1"
+                className="input min-w-0 flex-1"
                 placeholder="#6366f1"
                 value={agency.primaryColor ?? ""}
                 onChange={(e) =>
@@ -198,7 +198,7 @@ export default function SettingsPage() {
       </form>
 
       {/* Mot de passe */}
-      <form onSubmit={savePassword} className="card mt-6 p-7">
+      <form onSubmit={savePassword} className="card mt-6 p-5 sm:p-7">
         <h2 className="flex items-center gap-2 text-lg font-semibold text-white">
           <Lock className="h-5 w-5 text-indigo-300" />
           Changer le mot de passe

@@ -25,7 +25,7 @@ export function AuthShell({
         </Link>
       </header>
       <main className="relative z-10 mx-auto w-full max-w-md flex-1 px-6 pb-16">
-        <div className="card p-8">
+        <div className="card p-6 sm:p-8">
           <h1 className="text-xl font-bold text-white">{title}</h1>
           <p className="mt-1 text-sm text-white/55">{subtitle}</p>
           <div className="mt-6">{children}</div>

@@ -192,7 +192,7 @@ export default function LandingPage() {
           <span className="rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 p-2">
             <Compass className="h-5 w-5 text-white" />
           </span>
-          <span className="text-lg font-bold tracking-tight text-white">
+          <span className="hidden text-lg font-bold tracking-tight text-white min-[520px]:inline">
             ProspectPilot <span className="gradient-text">Local</span>
           </span>
         </Link>
@@ -249,8 +249,8 @@ export default function LandingPage() {
         </p>
 
         {/* Aperçu produit */}
-        <div className="card mx-auto mt-14 max-w-4xl p-6 text-left sm:p-8">
-          <div className="mb-5 flex items-center justify-between">
+        <div className="card mx-auto mt-14 max-w-4xl p-5 text-left sm:p-8">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-indigo-300">
                 Rapport stratégique digital
@@ -296,7 +296,7 @@ export default function LandingPage() {
       {/* Problème / solution */}
       <section className="relative z-10 mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="card p-8">
+          <div className="card p-6 sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-rose-300">
               Le problème
             </p>
@@ -317,7 +317,7 @@ export default function LandingPage() {
               ))}
             </ul>
           </div>
-          <div className="card border-indigo-400/30 p-8">
+          <div className="card border-indigo-400/30 p-6 sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-emerald-300">
               La solution
             </p>
@@ -478,7 +478,7 @@ export default function LandingPage() {
 
       {/* CTA final */}
       <section className="relative z-10 mx-auto max-w-6xl px-6 py-16">
-        <div className="card relative overflow-hidden p-10 text-center">
+        <div className="card relative overflow-hidden p-6 text-center sm:p-10">
           <div className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-violet-600/25 blur-3xl" />
           <Megaphone className="relative mx-auto mb-4 h-10 w-10 text-indigo-300" />
           <h2 className="relative text-2xl font-bold text-white sm:text-3xl">

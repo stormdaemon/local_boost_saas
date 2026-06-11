@@ -106,7 +106,7 @@ export default function ReportPage() {
             en PDF.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {missing.length > 0 && (
             <button
               onClick={generateMissing}
@@ -135,7 +135,7 @@ export default function ReportPage() {
 
       {/* En-tête : marque blanche */}
       <div
-        className="card mb-6 overflow-hidden p-8 print:border print:p-6"
+        className="card mb-6 overflow-hidden p-5 sm:p-8 print:border print:p-6"
         style={accent ? { borderTop: `4px solid ${accent}` } : undefined}
       >
         <div className="flex flex-wrap items-start justify-between gap-4">
@@ -196,7 +196,7 @@ export default function ReportPage() {
 
       {/* Résumé exécutif */}
       {(proposal?.executiveSummary || audit?.summary) && (
-        <section className="card mb-6 p-8 print:border print:p-6">
+        <section className="card mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="Résumé exécutif" color={accent} />
           <p className="text-sm leading-relaxed text-white/70 print:text-gray-700">
             {proposal?.executiveSummary ?? audit?.summary}
@@ -206,7 +206,7 @@ export default function ReportPage() {
 
       {/* Audit */}
       {audit && (
-        <section className="card mb-6 p-8 print:border print:p-6">
+        <section className="card mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="État des lieux digital" color={accent} />
           <ScoreBars scores={audit.scores} />
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
@@ -254,7 +254,7 @@ export default function ReportPage() {
 
       {/* Stratégie */}
       {strategy && (
-        <section className="card print-break mb-6 p-8 print:border print:p-6">
+        <section className="card print-break mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="Stratégie de visibilité locale" color={accent} />
           <p className="mb-5 text-sm leading-relaxed text-white/70 print:text-gray-700">
             {strategy.vision}
@@ -296,7 +296,7 @@ export default function ReportPage() {
 
       {/* ROI */}
       {roi && roiScenario && (
-        <section className="card mb-6 p-8 print:border print:p-6">
+        <section className="card mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="Retour sur investissement projeté" color={accent} />
           <p className="mb-4 text-sm text-white/60 print:text-gray-600">
             Hypothèses du scénario « {roiScenario.name} » : {euro(roiScenario.monthlyInvestment)}
@@ -323,7 +323,7 @@ export default function ReportPage() {
 
       {/* Calendrier */}
       {calendar && (
-        <section className="card print-break mb-6 p-8 print:border print:p-6">
+        <section className="card print-break mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="Calendrier éditorial — 4 semaines" color={accent} />
           <div className="grid gap-5">
             {calendar.weeks.map((w, wi) => (
@@ -351,7 +351,7 @@ export default function ReportPage() {
 
       {/* Pitch */}
       {pitch && (
-        <section className="card mb-6 p-8 print:border print:p-6">
+        <section className="card mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="Discours commercial" color={accent} />
           <p className="text-sm font-medium leading-relaxed text-white print:text-black">
             « {pitch.elevator} »
@@ -365,10 +365,10 @@ export default function ReportPage() {
 
       {/* Proposition */}
       {proposal && (
-        <section className="card print-break mb-6 p-8 print:border print:p-6">
+        <section className="card print-break mb-6 p-5 sm:p-8 print:border print:p-6">
           <SectionTitle n={nextN()} title="Offre recommandée" color={accent} />
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+            <table className="w-full min-w-[520px] text-left text-sm">
               <thead>
                 <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-white/40 print:border-gray-200 print:text-gray-500">
                   <th className="px-3 py-2">Offre</th>

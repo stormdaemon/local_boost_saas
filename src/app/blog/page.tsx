@@ -20,7 +20,7 @@ export default function BlogIndexPage() {
           <span className="rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 p-2">
             <Compass className="h-4 w-4 text-white" />
           </span>
-          <span className="font-bold text-white">
+          <span className="hidden font-bold text-white min-[480px]:inline">
             ProspectPilot <span className="gradient-text">Local</span>
           </span>
         </Link>

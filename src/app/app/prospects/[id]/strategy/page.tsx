@@ -77,7 +77,7 @@ export default function StrategyPage() {
           Mots-clés locaux prioritaires
         </h3>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm">
+          <table className="w-full min-w-[460px] text-left text-sm">
             <thead>
               <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-white/40">
                 <th className="px-3 py-2.5">#</th>

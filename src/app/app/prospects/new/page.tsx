@@ -121,7 +121,7 @@ export default function NewProspectPage() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-xl font-bold text-white">Nouveau prospect</h1>
         <span className="text-sm text-white/40">
@@ -150,7 +150,7 @@ export default function NewProspectPage() {
         ))}
       </div>
 
-      <div className="card p-8">
+      <div className="card p-5 sm:p-8">
         <div className="mb-6 flex items-center gap-3">
           {(() => {
             const Icon = STEPS[step].icon;

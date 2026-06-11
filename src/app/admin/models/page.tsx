@@ -115,7 +115,7 @@ export default function AdminModelsPage() {
       </p>
 
       <div
-        className={`card mt-6 mb-8 flex items-center gap-4 p-5 ${
+        className={`card mt-6 mb-8 flex flex-wrap items-center gap-4 p-5 ${
           configured === false ? "border-amber-400/30" : ""
         }`}
       >

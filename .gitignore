@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# captures du QA responsive (scripts/qa-*.mjs)
+/qa-screens/

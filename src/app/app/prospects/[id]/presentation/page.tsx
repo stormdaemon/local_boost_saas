@@ -190,7 +190,7 @@ export default function PresentationPage() {
 
   return (
     <div className="flex min-h-[70vh] flex-col">
-      <div className="card relative flex flex-1 flex-col items-center justify-center overflow-hidden px-8 py-16 text-center">
+      <div className="card relative flex flex-1 flex-col items-center justify-center overflow-hidden px-5 py-12 text-center sm:px-8 sm:py-16">
         <div className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-3xl" />
         <p className="relative text-sm font-black uppercase tracking-[0.3em] gradient-text">
           {slide.kicker}
@@ -202,9 +202,14 @@ export default function PresentationPage() {
       </div>
 
       <div className="mt-5 flex items-center justify-between">
-        <button onClick={prev} disabled={index === 0} className="btn-ghost">
+        <button
+          onClick={prev}
+          disabled={index === 0}
+          aria-label="Diapositive précédente"
+          className="btn-ghost"
+        >
           <ArrowLeft className="h-4 w-4" />
-          Précédent
+          <span className="hidden sm:inline">Précédent</span>
         </button>
         <div className="flex items-center gap-1.5">
           {slides.map((_, i) => (
@@ -221,9 +226,10 @@ export default function PresentationPage() {
         <button
           onClick={next}
           disabled={index === slides.length - 1}
+          aria-label="Diapositive suivante"
           className="btn-primary"
         >
-          Suivant
+          <span className="hidden sm:inline">Suivant</span>
           <ArrowRight className="h-4 w-4" />
         </button>
       </div>

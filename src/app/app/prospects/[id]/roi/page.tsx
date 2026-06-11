@@ -169,9 +169,9 @@ export default function RoiPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex gap-2 border-t border-white/10 pt-5">
+          <div className="mt-6 flex flex-wrap gap-2 border-t border-white/10 pt-5">
             <input
-              className="input flex-1"
+              className="input min-w-[160px] flex-1"
               placeholder="Nom du scénario…"
               value={name}
               onChange={(e) => setName(e.target.value)}

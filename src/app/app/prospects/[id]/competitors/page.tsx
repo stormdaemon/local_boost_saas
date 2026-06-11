@@ -99,6 +99,9 @@ export default function CompetitorsPage() {
               axisLine={false}
               tickLine={false}
               interval={0}
+              tickFormatter={(v: string) =>
+                v.length > 12 ? `${v.slice(0, 11)}…` : v
+              }
             />
             <YAxis
               domain={[0, 100]}
@@ -141,7 +144,7 @@ export default function CompetitorsPage() {
               </span>
             </div>
             <p className="mt-3 text-sm italic text-white/60">« {c.positioning} »</p>
-            <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
+            <div className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-300/80">
                   Forces

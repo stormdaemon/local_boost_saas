@@ -26,9 +26,9 @@ export default async function ProspectLayout({
   }
 
   return (
-    <div className="flex flex-1">
+    <div className="flex flex-1 flex-col md:flex-row">
       <Sidebar business={business} />
-      <main className="min-w-0 flex-1 px-6 py-8 lg:px-10">
+      <main className="min-w-0 flex-1 px-4 py-6 sm:px-6 sm:py-8 lg:px-10">
         <div className="mx-auto max-w-5xl">{children}</div>
       </main>
     </div>

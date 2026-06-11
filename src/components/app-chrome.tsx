@@ -75,8 +75,8 @@ export function AppChrome({
   return (
     <div className="flex min-h-screen flex-col">
       <header className="no-print sticky top-0 z-40 border-b border-white/10 bg-[#060a12]/90 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <div className="flex items-center gap-5">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-5">
             <Link href="/app" className="flex items-center gap-2.5">
               <span className="rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 p-2">
                 <Compass className="h-4 w-4 text-white" />
@@ -94,8 +94,8 @@ export function AppChrome({
                     : "text-white/55 hover:text-white"
                 }`}
               >
-                <LayoutDashboard className="h-4 w-4" />
-                <span className="hidden md:inline">Prospects</span>
+                <LayoutDashboard className="h-4 w-4 shrink-0" />
+                <span className="sr-only md:not-sr-only">Prospects</span>
               </Link>
               <Link
                 href="/app/billing"
@@ -105,8 +105,8 @@ export function AppChrome({
                     : "text-white/55 hover:text-white"
                 }`}
               >
-                <CreditCard className="h-4 w-4" />
-                <span className="hidden md:inline">Abonnement</span>
+                <CreditCard className="h-4 w-4 shrink-0" />
+                <span className="sr-only md:not-sr-only">Abonnement</span>
               </Link>
               <Link
                 href="/app/settings"
@@ -116,21 +116,21 @@ export function AppChrome({
                     : "text-white/55 hover:text-white"
                 }`}
               >
-                <Settings className="h-4 w-4" />
-                <span className="hidden md:inline">Mon compte</span>
+                <Settings className="h-4 w-4 shrink-0" />
+                <span className="sr-only md:not-sr-only">Mon compte</span>
               </Link>
               {isAdmin && (
                 <Link
                   href="/admin"
                   className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-amber-300/80 transition hover:text-amber-200"
                 >
-                  <ShieldCheck className="h-4 w-4" />
-                  <span className="hidden md:inline">Admin</span>
+                  <ShieldCheck className="h-4 w-4 shrink-0" />
+                  <span className="sr-only md:not-sr-only">Admin</span>
                 </Link>
               )}
             </nav>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <span
               className={`chip hidden sm:inline-flex ${
                 planActive
@@ -159,7 +159,7 @@ export function AppChrome({
       </header>
 
       {showPaywall ? (
-        <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
+        <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6 sm:py-12">
           <div className="mb-10 text-center">
             <span className="chip mx-auto mb-4 border-amber-400/30 bg-amber-400/10 text-amber-200">
               <Lock className="h-3.5 w-3.5" />

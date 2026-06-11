@@ -89,7 +89,7 @@ export default function PitchPage() {
         regenerating={busy}
       />
 
-      <div className="card relative overflow-hidden p-8">
+      <div className="card relative overflow-hidden p-6 sm:p-8">
         <div className="pointer-events-none absolute -top-24 right-0 h-56 w-96 rounded-full bg-violet-600/15 blur-3xl" />
         <Quote className="relative mb-3 h-8 w-8 text-indigo-300/60" />
         <p className="relative text-lg font-medium leading-relaxed text-white">

@@ -42,7 +42,7 @@ export default function ExampleReportPage() {
           <span className="rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 p-2">
             <Compass className="h-4 w-4 text-white" />
           </span>
-          <span className="font-bold text-white">
+          <span className="hidden font-bold text-white min-[480px]:inline">
             ProspectPilot <span className="gradient-text">Local</span>
           </span>
         </Link>
@@ -69,7 +69,7 @@ export default function ExampleReportPage() {
         </div>
 
         {/* En-tête de rapport */}
-        <div className="card mb-6 p-8">
+        <div className="card mb-6 p-5 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-widest text-indigo-300">
             Rapport stratégique digital
           </p>
@@ -80,7 +80,7 @@ export default function ExampleReportPage() {
         </div>
 
         {/* Scores */}
-        <div className="card mb-6 p-8">
+        <div className="card mb-6 p-5 sm:p-8">
           <h3 className="mb-1 text-lg font-bold text-white">État des lieux digital</h3>
           <p className="mb-5 text-sm text-white/55">
             Score global : <span className="font-bold text-white">{scores.global}/100</span>
@@ -90,7 +90,7 @@ export default function ExampleReportPage() {
         </div>
 
         {/* Plan d'action */}
-        <div className="card mb-6 p-8">
+        <div className="card mb-6 p-5 sm:p-8">
           <h3 className="mb-4 text-lg font-bold text-white">Actions prioritaires</h3>
           <ol className="grid gap-3">
             {audit.priorities.slice(0, 3).map((p, i) => (
@@ -105,7 +105,7 @@ export default function ExampleReportPage() {
         </div>
 
         {/* Mots-clés */}
-        <div className="card mb-6 p-8">
+        <div className="card mb-6 p-5 sm:p-8">
           <h3 className="mb-4 text-lg font-bold text-white">
             Recherches locales à conquérir
           </h3>
@@ -119,7 +119,7 @@ export default function ExampleReportPage() {
         </div>
 
         {/* Proposition */}
-        <div className="card mb-10 p-8">
+        <div className="card mb-10 p-5 sm:p-8">
           <h3 className="mb-4 text-lg font-bold text-white">
             Proposition commerciale (extrait)
           </h3>
@@ -148,7 +148,7 @@ export default function ExampleReportPage() {
         </div>
 
         {/* CTA */}
-        <div className="card relative overflow-hidden p-10 text-center">
+        <div className="card relative overflow-hidden p-6 text-center sm:p-10">
           <div className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-violet-600/25 blur-3xl" />
           <h2 className="relative text-2xl font-bold text-white">
             Le même rapport, pour vos prospects, à vos couleurs

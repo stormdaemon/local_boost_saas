@@ -49,7 +49,7 @@ export default function PricingComparisonPage() {
           <span className="rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 p-2">
             <Compass className="h-4 w-4 text-white" />
           </span>
-          <span className="font-bold text-white">
+          <span className="hidden font-bold text-white min-[480px]:inline">
             ProspectPilot <span className="gradient-text">Local</span>
           </span>
         </Link>
@@ -70,6 +70,9 @@ export default function PricingComparisonPage() {
           </p>
         </div>
 
+        <p className="mb-3 text-center text-xs text-white/40 md:hidden">
+          Faites défiler le tableau horizontalement pour comparer les forfaits →
+        </p>
         <div className="card overflow-x-auto">
           <table className="w-full min-w-[640px] text-left">
             <thead>
